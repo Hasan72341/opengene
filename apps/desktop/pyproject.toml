@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opengene-desktop"
+version = "0.1.0"
+description = "Optional PySide6 / Qt Quick desktop host for OpenGene Studio"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MPL-2.0" }
+authors = [{ name = "OpenGene contributors" }]
+keywords = ["molecular-biology", "qt", "pyside6", "desktop", "local-first"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: X11 Applications :: Qt",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+dependencies = ["PySide6>=6.6,<7"]
+
+[project.scripts]
+opengene-desktop = "opengene_desktop.main:main"
+
+[tool.setuptools]
+packages = ["opengene_desktop"]
+include-package-data = true
+
+[tool.setuptools.package-dir]
+opengene_desktop = "."
+
+[tool.setuptools.package-data]
+opengene_desktop = ["qml/*.qml", "qml/components/*.qml", "qml/theme/*.qml"]
+

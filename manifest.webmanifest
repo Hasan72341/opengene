@@ -1,0 +1,17 @@
+{
+  "name": "OpenGene Studio",
+  "short_name": "OpenGene",
+  "description": "Local-first molecular design and cloning workstation",
+  "display": "standalone",
+  "start_url": "./",
+  "background_color": "#f4f7f5",
+  "theme_color": "#1d5b4f",
+  "icons": [
+    {
+      "src": "assets/opengene-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

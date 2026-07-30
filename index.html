@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f6f8fb" />
+    <title>OpenGene Studio — Molecular design workspace</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+      <symbol id="i-mark" viewBox="0 0 40 40">
+        <path d="M9.6 7.8c6.5-4.1 14.3-4.1 20.8 0M9.6 32.2c6.5 4.1 14.3 4.1 20.8 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3.4"/>
+        <path d="M11.5 11.7c4.5 2.6 12.5 2.6 17 0M11.5 28.3c4.5-2.6 12.5-2.6 17 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3.4"/>
+        <path d="M15 14.3v11.4M25 14.3v11.4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3.4"/>
+      </symbol>
+      <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1.25" fill="currentColor"/><rect x="14" y="4" width="6" height="6" rx="1.25" fill="currentColor"/><rect x="4" y="14" width="6" height="6" rx="1.25" fill="currentColor"/><rect x="14" y="14" width="6" height="6" rx="1.25" fill="currentColor"/></symbol>
+      <symbol id="i-dna" viewBox="0 0 24 24"><path d="M6.4 3.5c7.6 4.8 3.6 12.2 11.2 17M17.6 3.5C10 8.3 14 15.7 6.4 20.5M8.3 6.4h7.4M8.3 17.6h7.4M6.3 11.9h11.4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></symbol>
+      <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3.5 7.8c0-1.3 1-2.3 2.3-2.3h4l1.7 2h6.7c1.3 0 2.3 1 2.3 2.3v7.8c0 1.3-1 2.3-2.3 2.3H5.8c-1.3 0-2.3-1-2.3-2.3V7.8Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="5.8" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="m15.2 15.2 4 4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.9"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4.7v14.6M4.7 12h14.6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></symbol>
+      <symbol id="i-map" viewBox="0 0 24 24"><path d="m4 6.3 5-2.1 6 2.1 5-2.1v13.5l-5 2.1-6-2.1-5 2.1V6.3Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.7"/><path d="M9 4.3v14.5M15 6.3v14.5" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+      <symbol id="i-lines" viewBox="0 0 24 24"><path d="M5 6h14M5 10h14M5 14h9M5 18h12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3ZM18.2 15.2l.65 2.35 2.35.65-2.35.65-.65 2.35-.65-2.35-2.35-.65 2.35-.65.65-2.35Z" fill="currentColor"/></symbol>
+      <symbol id="i-history" viewBox="0 0 24 24"><path d="M4.4 9.3A8 8 0 1 1 4.1 14M4.5 4.8v4.8h4.8M12 7.8V12l3.1 2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></symbol>
+      <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3.8h6M10.3 3.8v6.1l-5.1 7.4a2.1 2.1 0 0 0 1.7 3.3h10.2a2.1 2.1 0 0 0 1.7-3.3l-5.1-7.4V3.8M8.1 14.1h7.8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24"><path d="M12 8.3a3.7 3.7 0 1 0 0 7.4 3.7 3.7 0 0 0 0-7.4Zm0-4.3 1.1 2.2 2.4.55 1.9-1.5 1.8 1.8-1.5 1.9.55 2.4 2.2 1.1v2.5l-2.2 1.1-.55 2.4 1.5 1.9-1.8 1.8-1.9-1.5-2.4.55L12 22l-2.5-.05-1.1-2.2-2.4-.55-1.9 1.5-1.8-1.8 1.5-1.9-.55-2.4L1 13.5V11l2.2-1.1.55-2.4-1.5-1.9 1.8-1.8L6 5.3l2.4-.55L9.5 2.5 12 2.5V4Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.35"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></symbol>
+      <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m5 9 7 7 7-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></symbol>
+      <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.65" fill="currentColor"/><circle cx="12" cy="12" r="1.65" fill="currentColor"/><circle cx="19" cy="12" r="1.65" fill="currentColor"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v10.6M8.3 11.3 12 15l3.7-3.7M5 19.5h14" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"/></symbol>
+      <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5.6" r="2.3" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="6" cy="12" r="2.3" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="18" cy="18.4" r="2.3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m8.1 10.8 7.8-4M8.1 13.2l7.8 4" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+      <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 7 4.5 11.5 9 16M5 11.5h8.4a5.1 5.1 0 0 1 5.1 5.1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></symbol>
+      <symbol id="i-redo" viewBox="0 0 24 24"><path d="m15 7 4.5 4.5L15 16M19.5 11.5h-8.4A5.1 5.1 0 0 0 6 16.6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></symbol>
+      <symbol id="i-zoom-in" viewBox="0 0 24 24"><circle cx="10.6" cy="10.6" r="5.8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m15 15 4.2 4.2M10.6 7.6v6M7.6 10.6h6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></symbol>
+      <symbol id="i-zoom-out" viewBox="0 0 24 24"><circle cx="10.6" cy="10.6" r="5.8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m15 15 4.2 4.2M7.6 10.6h6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></symbol>
+      <symbol id="i-fit" viewBox="0 0 24 24"><path d="M4.5 9V4.5H9M15 4.5h4.5V9M19.5 15v4.5H15M9 19.5H4.5V15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5.3" y="10.2" width="13.4" height="9.5" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 10.2V7.8a3.5 3.5 0 0 1 7 0v2.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="m6.2 6.2 11.6 11.6M17.8 6.2 6.2 17.8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.9"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5.2 12.5 4.2 4.2 9.5-9.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></symbol>
+      <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 10.6v5.1M12 7.3h.01" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></symbol>
+    </svg>
+
+    <div class="app-shell" id="app-shell" data-app="opengene-studio">
+      <aside class="global-rail" id="desktop-sidebar" aria-label="OpenGene Studio navigation">
+        <a class="brand" href="#map-view" aria-label="OpenGene Studio home" data-nav-target="home">
+          <span class="brand-mark"><svg><use href="#i-mark"></use></svg></span>
+          <span class="brand-name">OpenGene</span>
+        </a>
+
+        <nav class="rail-nav" aria-label="Primary">
+          <button class="rail-button is-active" type="button" aria-label="Design workspace" aria-current="page" data-nav="design" data-view-target="map">
+            <svg><use href="#i-grid"></use></svg><span>Design</span>
+          </button>
+          <button class="rail-button" type="button" aria-label="Projects" data-nav="projects" data-view-target="files">
+            <svg><use href="#i-folder"></use></svg><span>Projects</span>
+          </button>
+          <button class="rail-button" type="button" aria-label="Search sequence library" data-nav="search" data-command="search">
+            <svg><use href="#i-search"></use></svg><span>Search</span>
+          </button>
+        </nav>
+
+        <div class="rail-spacer"></div>
+        <button class="rail-button" type="button" aria-label="Settings" data-nav="settings" data-command="settings">
+          <svg><use href="#i-settings"></use></svg><span>Settings</span>
+        </button>
+        <button class="avatar-button" type="button" aria-label="Account menu" data-command="account-menu">
+          <span>HR</span><i class="online-dot"></i>
+        </button>
+      </aside>
+
+      <aside class="project-rail" id="project-sidebar" aria-label="Current project">
+        <div class="project-rail__top">
+          <button class="workspace-switcher" type="button" data-command="workspace-menu" aria-haspopup="menu">
+            <span class="workspace-switcher__icon"><svg><use href="#i-dna"></use></svg></span>
+            <span class="workspace-switcher__copy"><b>Vector workshop</b><small>Personal workspace</small></span>
+            <svg class="chevron"><use href="#i-chevron-down"></use></svg>
+          </button>
+          <button class="create-button" type="button" aria-label="Create a new sequence" data-command="new-document">
+            <svg><use href="#i-plus"></use></svg><span>New</span>
+          </button>
+        </div>
+
+        <div class="project-heading">
+          <div>
+            <p class="eyebrow">Open project</p>
+            <h1>Cloning workspace</h1>
+          </div>
+          <button class="icon-button quiet" type="button" aria-label="Project options" data-command="project-menu"><svg><use href="#i-more"></use></svg></button>
+        </div>
+
+        <div class="project-progress" aria-label="Project is autosaved">
+          <span class="project-progress__dot"></span><span>Autosaved just now</span>
+        </div>
+
+        <nav class="document-tree" aria-label="Project documents" data-document-list>
+          <button class="tree-row tree-row--group" type="button" aria-expanded="true" data-tree-toggle="plasmids">
+            <span class="disclosure"><svg><use href="#i-chevron-down"></use></svg></span>
+            <span class="tree-row__type tree-row__type--folder"><svg><use href="#i-folder"></use></svg></span>
+            <span class="tree-row__label">Plasmids</span><span class="tree-row__count">4</span>
+          </button>
+          <div class="tree-children" id="tree-plasmids">
+            <button class="tree-row is-selected" type="button" aria-current="page" data-document-id="pOGS-amp-01" data-command="open-document">
+              <span class="tree-row__type tree-row__type--plasmid"><svg><use href="#i-dna"></use></svg></span>
+              <span class="tree-row__label"><b>pOGS-AmpR</b><small>5,842 bp · circular</small></span>
+              <span class="row-status" title="Validated"><svg><use href="#i-check"></use></svg></span>
+            </button>
+            <button class="tree-row" type="button" data-document-id="pOGS-gfp-02" data-command="open-document">
+              <span class="tree-row__type tree-row__type--plasmid"><svg><use href="#i-dna"></use></svg></span>
+              <span class="tree-row__label"><b>pOGS-GFP</b><small>6,193 bp · circular</small></span>
+            </button>
+            <button class="tree-row" type="button" data-document-id="pBR322" data-command="open-document">
+              <span class="tree-row__type tree-row__type--plasmid"><svg><use href="#i-dna"></use></svg></span>
+              <span class="tree-row__label"><b>pBR322 backbone</b><small>4,361 bp · circular</small></span>
+            </button>
+            <button class="tree-row" type="button" data-document-id="gibson-final" data-command="open-document">
+              <span class="tree-row__type tree-row__type--plasmid"><svg><use href="#i-dna"></use></svg></span>
+              <span class="tree-row__label"><b>Gibson final</b><small>6,420 bp · circular</small></span>
+            </button>
+          </div>
+          <button class="tree-row tree-row--group" type="button" aria-expanded="true" data-tree-toggle="fragments">
+            <span class="disclosure"><svg><use href="#i-chevron-down"></use></svg></span>
+            <span class="tree-row__type tree-row__type--folder"><svg><use href="#i-folder"></use></svg></span>
+            <span class="tree-row__label">Fragments</span><span class="tree-row__count">3</span>
+          </button>
+          <div class="tree-children" id="tree-fragments">
+            <button class="tree-row" type="button" data-document-id="mcherry-cds" data-command="open-document">
+              <span class="tree-row__type tree-row__type--fragment"><svg><use href="#i-dna"></use></svg></span>
+              <span class="tree-row__label"><b>mCherry CDS</b><small>711 bp</small></span>
+            </button>
+            <button class="tree-row" type="button" data-document-id="t7-insert" data-command="open-document">
+              <span class="tree-row__type tree-row__type--fragment"><svg><use href="#i-dna"></use></svg></span>
+              <span class="tree-row__label"><b>T7 insert</b><small>1,246 bp</small></span>
+            </button>
+          </div>
+          <button class="tree-row tree-row--group" type="button" aria-expanded="false" data-tree-toggle="primers">
+            <span class="disclosure"><svg><use href="#i-chevron"></use></svg></span>
+            <span class="tree-row__type tree-row__type--folder"><svg><use href="#i-folder"></use></svg></span>
+            <span class="tree-row__label">Primers</span><span class="tree-row__count">12</span>
+          </button>
+        </nav>
+
+        <div class="project-rail__bottom">
+          <button class="library-prompt" type="button" data-command="browse-library">
+            <span class="library-prompt__icon"><svg><use href="#i-spark"></use></svg></span>
+            <span><b>Explore the library</b><small>Find parts, templates &amp; enzymes</small></span>
+            <svg class="chevron"><use href="#i-chevron"></use></svg>
+          </button>
+        </div>
+      </aside>
+
+      <main class="studio" id="workspace" data-workspace aria-label="Molecular design workspace">
+        <header class="topbar" id="app-header">
+          <div class="mobile-project-menu">
+            <button class="icon-button soft" type="button" aria-label="Open project navigation" data-command="open-sidebar"><svg><use href="#i-lines"></use></svg></button>
+            <span class="mobile-project-menu__title">pOGS-AmpR</span>
+          </div>
+          <nav class="view-tabs" aria-label="Document views" data-view-tabs>
+            <button class="view-tab is-active" type="button" aria-selected="true" data-view="map" data-view-target="map-view"><svg><use href="#i-map"></use></svg><span>Map</span></button>
+            <button class="view-tab" type="button" aria-selected="false" data-view="sequence" data-view-target="sequence-view"><svg><use href="#i-lines"></use></svg><span>Sequence</span></button>
+            <button class="view-tab" type="button" aria-selected="false" data-view="features" data-view-target="features-view"><svg><use href="#i-spark"></use></svg><span>Features</span><em>8</em></button>
+            <button class="view-tab" type="button" aria-selected="false" data-view="history" data-view-target="history-view"><svg><use href="#i-history"></use></svg><span>History</span></button>
+          </nav>
+          <div class="topbar-actions">
+            <input id="file-input" type="file" accept=".fasta,.fa,.fas,.fastq,.fq,.gb,.gbk,.genbank,.ogs,.json" hidden data-import-input />
+            <button class="icon-button quiet desktop-only" id="undo-button" type="button" aria-label="Undo" data-command="undo"><svg><use href="#i-undo"></use></svg></button>
+            <button class="icon-button quiet desktop-only" id="redo-button" type="button" aria-label="Redo" data-command="redo"><svg><use href="#i-redo"></use></svg></button>
+            <span class="topbar-divider desktop-only"></span>
+            <button class="action-button secondary desktop-only" id="import-button" type="button" data-command="import"><svg><use href="#i-plus"></use></svg><span>Import</span></button>
+            <button class="action-button secondary" id="export-button" type="button" data-command="export"><svg><use href="#i-download"></use></svg><span>Export</span></button>
+            <button class="icon-button quiet desktop-only" id="save-button" type="button" aria-label="Save project" data-command="save"><svg><use href="#i-check"></use></svg></button>
+            <button class="action-button primary" type="button" data-command="share"><svg><use href="#i-share"></use></svg><span>Share</span></button>
+          </div>
+        </header>
+
+        <section class="document-toolbar" aria-label="Current document actions">
+          <div class="document-title-wrap">
+            <span class="document-kind"><svg><use href="#i-dna"></use></svg></span>
+            <div class="document-title">
+              <div class="document-title__line"><h2 contenteditable="false" data-document-name>pOGS-AmpR</h2><button class="title-options" type="button" aria-label="Document options" data-command="document-menu"><svg><use href="#i-chevron-down"></use></svg></button></div>
+              <p><span>5,842 bp</span><i></i><span>Circular DNA</span><i></i><span class="health-good"><b></b>Validated</span></p>
+            </div>
+          </div>
+          <div class="context-actions" aria-label="Map tools">
+            <button class="toolbar-button" type="button" data-command="find-sites"><svg><use href="#i-search"></use></svg><span>Find</span></button>
+            <button class="toolbar-button" type="button" data-command="annotate"><svg><use href="#i-spark"></use></svg><span>Annotate</span></button>
+            <button class="toolbar-button toolbar-button--highlight" type="button" data-command="clone"><svg><use href="#i-flask"></use></svg><span>Clone</span></button>
+            <button class="icon-button soft mobile-more" type="button" aria-label="More document tools" data-command="document-tools"><svg><use href="#i-more"></use></svg></button>
+          </div>
+        </section>
+
+        <div class="workspace-grid">
+          <section class="map-workspace view-panel is-active" id="map-view" data-view-panel="map" aria-label="Circular plasmid map">
+            <div class="canvas-topline">
+              <div class="view-status">
+                <span class="live-indicator"></span><span>All annotations visible</span>
+              </div>
+              <button class="canvas-filter" type="button" data-command="map-filter"><span class="filter-dot filter-dot--purple"></span><span>8 features</span><svg><use href="#i-chevron-down"></use></svg></button>
+            </div>
+
+            <div class="map-canvas" data-map-canvas>
+              <div class="map-halo halo-one"></div>
+              <div class="map-halo halo-two"></div>
+              <svg class="plasmid-map" viewBox="0 0 620 620" role="img" aria-labelledby="map-title map-desc" data-plasmid-map>
+                <title id="map-title">pOGS-AmpR circular plasmid map</title>
+                <desc id="map-desc">A 5,842 base pair circular DNA plasmid with eight labelled features.</desc>
+                <defs>
+                  <filter id="shadow-soft" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="7" stdDeviation="10" flood-color="#071b35" flood-opacity=".1"/></filter>
+                  <path id="mapTextTop" d="M 107,311 A 203,203 0 0,1 513,311" fill="none"/>
+                  <path id="mapTextBottom" d="M 513,311 A 203,203 0 0,1 107,311" fill="none"/>
+                  <linearGradient id="centerGlow" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f3f0ff"/><stop offset="1" stop-color="#f8fbff"/></linearGradient>
+                </defs>
+                <circle cx="310" cy="310" r="229" fill="#fbfcff" stroke="#e6eaf3" stroke-width="1"/>
+                <circle cx="310" cy="310" r="191" fill="url(#centerGlow)" stroke="#e3e7f1" stroke-width="1.5"/>
+                <circle cx="310" cy="310" r="152" fill="none" stroke="#e9edf5" stroke-width="21"/>
+                <circle cx="310" cy="310" r="152" fill="none" stroke="#cbd3e2" stroke-width="15" stroke-dasharray="7 6" opacity=".75"/>
+                <path d="M310 158 A152 152 0 0 1 438.6 228.7" fill="none" stroke="#7958e8" stroke-width="26" stroke-linecap="round"/>
+                <path d="M451.8 252.8 A152 152 0 0 1 455.7 377.1" fill="none" stroke="#18ad9d" stroke-width="26" stroke-linecap="round"/>
+                <path d="M435.8 406.3 A152 152 0 0 1 312.5 462" fill="none" stroke="#f0b04d" stroke-width="26" stroke-linecap="round"/>
+                <path d="M279 458.8 A152 152 0 0 1 165 382.8" fill="none" stroke="#ed718a" stroke-width="26" stroke-linecap="round"/>
+                <path d="M155.2 353.8 A152 152 0 0 1 171.1 237.4" fill="none" stroke="#4e94e8" stroke-width="26" stroke-linecap="round"/>
+                <path d="M190.2 211.2 A152 152 0 0 1 281.4 160.8" fill="none" stroke="#2c789e" stroke-width="26" stroke-linecap="round"/>
+                <path d="m422 205 20 23-29 2Z" fill="#7958e8"/>
+                <path d="m451 358 13 27-28-6Z" fill="#18ad9d"/>
+                <path d="m336 459-28 14 1-30Z" fill="#f0b04d"/>
+                <path d="m172 400-14-27 30 4Z" fill="#ed718a"/>
+                <path d="m162 267-9-29 28 10Z" fill="#4e94e8"/>
+                <g stroke="#566275" stroke-width="2.2" stroke-linecap="round">
+                  <path d="M311 125v17"/><path d="m443 177-10 13"/><path d="m495 309-17 0"/><path d="m441 442-12-12"/><path d="M310 496v-17"/><path d="m178 443 12-12"/><path d="m125 311h17"/><path d="m177 178 12 12"/>
+                </g>
+                <g class="map-labels" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+                  <path d="M306 143v-26" fill="none" stroke="#536077" stroke-width="1.2"/>
+                  <text x="310" y="102" text-anchor="middle" fill="#313d53" font-size="13" font-weight="700">T7 promoter</text>
+                  <text x="310" y="120" text-anchor="middle" fill="#78849a" font-size="11">1–46</text>
+                  <path d="m438 215 33-19" fill="none" stroke="#536077" stroke-width="1.2"/>
+                  <text x="479" y="190" fill="#313d53" font-size="13" font-weight="700">RBS</text>
+                  <text x="479" y="207" fill="#78849a" font-size="11">68–93</text>
+                  <path d="m465 315 44 1" fill="none" stroke="#536077" stroke-width="1.2"/>
+                  <text x="516" y="311" fill="#313d53" font-size="13" font-weight="700">mCherry</text>
+                  <text x="516" y="328" fill="#78849a" font-size="11">104–814</text>
+                  <path d="m420 431 28 27" fill="none" stroke="#536077" stroke-width="1.2"/>
+                  <text x="455" y="470" fill="#313d53" font-size="13" font-weight="700">T7 terminator</text>
+                  <text x="455" y="487" fill="#78849a" font-size="11">842–903</text>
+                  <path d="m235 442-25 35" fill="none" stroke="#536077" stroke-width="1.2"/>
+                  <text x="201" y="499" text-anchor="end" fill="#313d53" font-size="13" font-weight="700">AmpR</text>
+                  <text x="201" y="516" text-anchor="end" fill="#78849a" font-size="11">1,186–2,046</text>
+                  <path d="m157 334-37 10" fill="none" stroke="#536077" stroke-width="1.2"/>
+                  <text x="112" y="352" text-anchor="end" fill="#313d53" font-size="13" font-weight="700">ColE1 ori</text>
+                  <text x="112" y="369" text-anchor="end" fill="#78849a" font-size="11">2,739–3,562</text>
+                  <path d="m193 219-28-25" fill="none" stroke="#536077" stroke-width="1.2"/>
+                  <text x="156" y="184" text-anchor="end" fill="#313d53" font-size="13" font-weight="700">lac promoter</text>
+                  <text x="156" y="201" text-anchor="end" fill="#78849a" font-size="11">4,512–4,632</text>
+                </g>
+                <g class="map-center" font-family="Inter, ui-sans-serif, system-ui, sans-serif" text-anchor="middle">
+                  <circle cx="310" cy="310" r="83" fill="#fff" filter="url(#shadow-soft)"/>
+                  <text x="310" y="290" fill="#79859a" font-size="12" letter-spacing="1.5">CIRCULAR DNA</text>
+                  <text x="310" y="326" fill="#1e2c42" font-size="31" font-weight="750">5,842</text>
+                  <text x="310" y="348" fill="#79859a" font-size="13">base pairs</text>
+                </g>
+                <g class="map-positions" fill="#78849a" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10"><text x="302" y="72">1</text><text x="539" y="307">1.5k</text><text x="298" y="558">3.0k</text><text x="58" y="307">4.5k</text></g>
+              </svg>
+
+              <button class="map-selection" type="button" data-feature-id="mCherry" aria-label="mCherry feature selected">
+                <span class="map-selection__swatch"></span>
+                <span><b>mCherry</b><small>CDS · 711 bp</small></span>
+                <svg><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="map-controls" aria-label="Map zoom controls">
+                <button class="icon-button canvas-control" type="button" aria-label="Zoom in" data-command="zoom-in"><svg><use href="#i-zoom-in"></use></svg></button>
+                <button class="icon-button canvas-control" type="button" aria-label="Zoom out" data-command="zoom-out"><svg><use href="#i-zoom-out"></use></svg></button>
+                <span></span>
+                <button class="icon-button canvas-control" type="button" aria-label="Fit map to view" data-command="fit-map"><svg><use href="#i-fit"></use></svg></button>
+              </div>
+            </div>
+
+            <div class="map-legend" aria-label="Feature legend">
+              <span><i class="legend-color legend-color--purple"></i>Regulatory</span>
+              <span><i class="legend-color legend-color--teal"></i>CDS</span>
+              <span><i class="legend-color legend-color--orange"></i>Terminator</span>
+              <span><i class="legend-color legend-color--rose"></i>Marker</span>
+            </div>
+          </section>
+
+          <section class="placeholder-panel view-panel" id="sequence-view" data-view-panel="sequence" aria-label="Sequence editor">
+            <div class="placeholder-panel__heading"><p class="eyebrow">Base editor</p><h2>Sequence</h2><p>Navigate, search, and edit bases with synchronized annotations.</p></div>
+            <div class="sequence-preview" data-sequence-canvas>
+              <div class="sequence-preview__ruler">1 <span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span></div>
+              <code><b>1</b> GCTAGC<em>ATG</em>GCTAGCTAGCTAGCGATCGATCG<mark>GAA TTC</mark>ATGCATGCTA</code>
+              <code><b>61</b> TCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATC</code>
+              <code><b>121</b> GGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTA</code>
+            </div>
+          </section>
+
+          <section class="placeholder-panel view-panel" id="features-view" data-view-panel="features" aria-label="Feature list">
+            <div class="placeholder-panel__heading"><p class="eyebrow">Annotation</p><h2>Features</h2><p>8 annotations are associated with this document.</p></div>
+            <div class="feature-list-preview">
+              <button type="button" data-feature-id="t7"><i class="legend-color legend-color--purple"></i><span><b>T7 promoter</b><small>promoter · 1–46</small></span><svg><use href="#i-chevron"></use></svg></button>
+              <button type="button" data-feature-id="mCherry"><i class="legend-color legend-color--teal"></i><span><b>mCherry</b><small>CDS · 104–814</small></span><svg><use href="#i-chevron"></use></svg></button>
+              <button type="button" data-feature-id="ampR"><i class="legend-color legend-color--rose"></i><span><b>AmpR</b><small>CDS · 1,186–2,046</small></span><svg><use href="#i-chevron"></use></svg></button>
+            </div>
+          </section>
+
+          <section class="placeholder-panel view-panel" id="history-view" data-view-panel="history" aria-label="Construct history">
+            <div class="placeholder-panel__heading"><p class="eyebrow">Reproducibility</p><h2>Construct history</h2><p>Every design operation is retained in the project provenance graph.</p></div>
+            <div class="history-preview">
+              <span class="history-node history-node--input">pBR322</span><span class="history-line"></span><span class="history-node history-node--operation"><svg><use href="#i-flask"></use></svg>Gibson assembly</span><span class="history-line"></span><span class="history-node history-node--output">pOGS-AmpR</span>
+            </div>
+          </section>
+
+          <aside class="inspector" id="inspector-panel" aria-label="Feature inspector" data-inspector>
+            <div class="inspector__header">
+              <div><p class="eyebrow">Selected feature</p><h2>mCherry</h2></div>
+              <button class="icon-button quiet" type="button" aria-label="Close inspector" data-command="close-inspector"><svg><use href="#i-close"></use></svg></button>
+            </div>
+            <div class="feature-identity">
+              <span class="feature-identity__swatch"></span>
+              <div><b>Coding sequence</b><span>Forward strand</span></div>
+              <button class="icon-button soft" type="button" aria-label="Feature options" data-command="feature-menu"><svg><use href="#i-more"></use></svg></button>
+            </div>
+            <dl class="details-list">
+              <div><dt>Position</dt><dd><strong>104–814</strong><span>711 bp</span></dd></div>
+              <div><dt>Translation</dt><dd><span class="translation">237 aa</span><button type="button" data-command="view-translation">View protein <svg><use href="#i-chevron"></use></svg></button></dd></div>
+              <div><dt>Color</dt><dd><button class="color-select" type="button" data-command="feature-color"><i></i><span>Coral</span><svg><use href="#i-chevron-down"></use></svg></button></dd></div>
+            </dl>
+            <div class="inspector-section">
+              <div class="inspector-section__title"><h3>Qualifiers</h3><button type="button" data-command="edit-qualifiers">Edit</button></div>
+              <div class="qualifier-row"><span>label</span><code>mCherry</code></div>
+              <div class="qualifier-row"><span>note</span><code>fluorescent reporter</code></div>
+            </div>
+            <div class="inspector-section inspector-section--note">
+              <div class="note-icon"><svg><use href="#i-info"></use></svg></div>
+              <p>Feature translation has no premature stop codons.</p>
+            </div>
+            <div class="inspector-actions">
+              <button class="action-button secondary grow" type="button" data-command="focus-feature">Focus on map</button>
+              <button class="action-button primary grow" type="button" data-command="edit-feature">Edit feature</button>
+            </div>
+          </aside>
+        </div>
+
+        <section class="tool-dock" id="tools-view" aria-label="Molecular biology tools" data-tool-dock>
+          <div class="tool-dock__header"><div><p class="eyebrow">Quick tools</p><h2>What do you want to do?</h2></div><button class="icon-button quiet" type="button" aria-label="Collapse quick tools" data-command="collapse-tools"><svg><use href="#i-chevron-down"></use></svg></button></div>
+          <div class="tool-card-row">
+            <button class="tool-card" type="button" data-tool="restriction-digest"><span class="tool-card__icon tool-card__icon--blue"><svg><use href="#i-dna"></use></svg></span><span><b>Digest</b><small>Cut with enzymes</small></span><svg class="tool-card__chevron"><use href="#i-chevron"></use></svg></button>
+            <button class="tool-card" type="button" data-tool="pcr"><span class="tool-card__icon tool-card__icon--coral"><svg><use href="#i-spark"></use></svg></span><span><b>PCR</b><small>Design primers</small></span><svg class="tool-card__chevron"><use href="#i-chevron"></use></svg></button>
+            <button class="tool-card" type="button" data-tool="gibson"><span class="tool-card__icon tool-card__icon--violet"><svg><use href="#i-flask"></use></svg></span><span><b>Gibson</b><small>Assemble fragments</small></span><svg class="tool-card__chevron"><use href="#i-chevron"></use></svg></button>
+            <button class="tool-card" type="button" data-tool="align"><span class="tool-card__icon tool-card__icon--green"><svg><use href="#i-lines"></use></svg></span><span><b>Align</b><small>Verify sequence</small></span><svg class="tool-card__chevron"><use href="#i-chevron"></use></svg></button>
+          </div>
+        </section>
+      </main>
+
+      <nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="Mobile primary navigation">
+        <button class="mobile-nav-item is-active" type="button" aria-current="page" data-nav="design" data-view-target="map-view"><svg><use href="#i-map"></use></svg><span>Map</span></button>
+        <button class="mobile-nav-item" type="button" data-nav="sequence" data-view-target="sequence-view"><svg><use href="#i-lines"></use></svg><span>Sequence</span></button>
+        <button class="mobile-create" type="button" aria-label="Create or add" data-command="new-document"><svg><use href="#i-plus"></use></svg></button>
+        <button class="mobile-nav-item" type="button" data-nav="tools" data-view-target="tools-view"><svg><use href="#i-flask"></use></svg><span>Tools</span></button>
+        <button class="mobile-nav-item" type="button" data-nav="history" data-view-target="history-view"><svg><use href="#i-history"></use></svg><span>History</span></button>
+      </nav>
+
+      <div class="toast" id="status-toast" role="status" aria-live="polite" data-status-toast hidden>
+        <svg><use href="#i-check"></use></svg><span>Project saved locally</span>
+      </div>
+    </div>
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>

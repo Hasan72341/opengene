@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opengene-studio"
+version = "0.1.0"
+description = "Clean-room, local-first molecular design and cloning workstation"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MPL-2.0" }
+authors = [{ name = "OpenGene contributors" }]
+keywords = ["molecular-biology", "plasmid", "cloning", "sequence", "local-first"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+
+[project.scripts]
+opengene = "apps.cli.main:main"
+opengene-desktop = "apps.desktop.main:main"
+
+[tool.setuptools]
+packages = [
+  "apps",
+  "apps.cli",
+  "apps.desktop",
+  "opengene_core",
+  "opengene_io",
+  "opengene_restriction",
+  "opengene_primers",
+  "opengene_annotations",
+  "opengene_alignment",
+  "opengene_sequencing",
+  "opengene_cloning",
+  "opengene_pcr",
+  "opengene",
+]
+
+[tool.setuptools.package-dir]
+apps = "apps"
+opengene_core = "packages/core/opengene_core"
+opengene_io = "packages/io/opengene_io"
+opengene_restriction = "packages/restriction/opengene_restriction"
+opengene_primers = "packages/primers/opengene_primers"
+opengene_annotations = "packages/annotations/opengene_annotations"
+opengene_alignment = "packages/alignment/opengene_alignment"
+opengene_sequencing = "packages/sequencing/opengene_sequencing"
+opengene_cloning = "packages/cloning/opengene_cloning"
+opengene_pcr = "packages/pcr/opengene_pcr"
+opengene = "packages/api/opengene"
+
+[tool.setuptools.package-data]
+"apps.desktop" = ["qml/**/*.qml"]
+
+[tool.unittest]
+start-directory = "packages"

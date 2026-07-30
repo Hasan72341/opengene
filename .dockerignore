@@ -1,0 +1,16 @@
+.git
+.gitignore
+__pycache__
+*.py[cod]
+.pytest_cache
+.DS_Store
+node_modules
+playwright-report
+test-results
+build
+dist
+*.egg-info
+docs
+Dockerfile
+docker-compose.yml
+.dockerignore

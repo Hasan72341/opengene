@@ -1,0 +1,30 @@
+services:
+  web:
+    build:
+      context: .
+      target: web
+    image: opengene-studio-web
+    ports:
+      - "4174:80"
+    restart: unless-stopped
+
+  cli:
+    build:
+      context: .
+      target: cli
+    image: opengene-studio-cli
+    profiles: ["tools"]
+    volumes:
+      - ./tests/fixtures:/work/fixtures:ro
+      - opengene-out:/work/out
+    command: ["--help"]
+
+  test:
+    build:
+      context: .
+      target: test
+    image: opengene-studio-test
+    profiles: ["ci"]
+
+volumes:
+  opengene-out:
