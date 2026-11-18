@@ -3,22 +3,26 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "opengene-studio"
+name = "opengene"
 version = "0.1.0"
 description = "Clean-room, local-first molecular design and cloning workstation"
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "MPL-2.0" }
-authors = [{ name = "OpenGene contributors" }]
+license = "MPL-2.0"
+authors = [{ name = "Hasan Raza", email = "hasanraza72341@gmail.com" }]
 keywords = ["molecular-biology", "plasmid", "cloning", "sequence", "local-first"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Science/Research",
-  "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
 ]
+
+[project.urls]
+Homepage = "https://github.com/Hasan72341/opengene"
+Repository = "https://github.com/Hasan72341/opengene"
+Issues = "https://github.com/Hasan72341/opengene/issues"
 
 [project.scripts]
 opengene = "apps.cli.main:main"
