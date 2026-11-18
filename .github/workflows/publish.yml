@@ -9,8 +9,11 @@ jobs:
   pypi-publish:
     name: Build and publish Python 🐍 distribution 📦 to PyPI
     runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/opengene
     permissions:
-      id-token: write  # Mandatory for PyPI Trusted Publishing
+      id-token: write  # Mandatory for PyPI Trusted Publishing (OIDC)
       contents: read
 
     steps:
@@ -29,8 +32,15 @@ jobs:
       - name: Build distributions
         run: uv build
 
-      - name: Publish to PyPI
+      - name: Publish to PyPI (via Token if secret exists)
+        if: ${{ secrets.PYPI_API_TOKEN != '' }}
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          # Uses PyPI Trusted Publishing if configured, or PYPI_API_TOKEN secret
           password: ${{ secrets.PYPI_API_TOKEN }}
+          packages-dir: dist/
+
+      - name: Publish to PyPI (via Trusted Publishing OIDC)
+        if: ${{ secrets.PYPI_API_TOKEN == '' }}
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist/
