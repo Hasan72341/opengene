@@ -98,4 +98,8 @@ class Project:
         return target
 
 
-__all__ = ["Project", "SequenceDocument"]
+# Miscellaneous and automation submodules
+from . import misc
+from .misc import assgn_two, target_gene, AssignmentResult
+
+__all__ = ["Project", "SequenceDocument", "misc", "assgn_two", "target_gene", "AssignmentResult"]

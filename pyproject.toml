@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "opengene"
-version = "0.1.0"
+version = "0.2.0"
 description = "Clean-room, local-first molecular design and cloning workstation"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -17,6 +17,12 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+  "biopython>=1.81",
+  "matplotlib>=3.7.0",
+  "reportlab>=4.0.0",
+  "numpy>=1.24.0",
 ]
 
 [project.urls]
@@ -43,6 +49,7 @@ packages = [
   "opengene_cloning",
   "opengene_pcr",
   "opengene",
+  "opengene.misc",
 ]
 
 [tool.setuptools.package-dir]
@@ -57,6 +64,7 @@ opengene_sequencing = "packages/sequencing/opengene_sequencing"
 opengene_cloning = "packages/cloning/opengene_cloning"
 opengene_pcr = "packages/pcr/opengene_pcr"
 opengene = "packages/api/opengene"
+"opengene.misc" = "packages/api/opengene/misc"
 
 [tool.setuptools.package-data]
 "apps.desktop" = ["qml/**/*.qml"]
